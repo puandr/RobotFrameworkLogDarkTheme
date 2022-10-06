@@ -1,0 +1,283 @@
+:root {
+    --text-color: black;
+    --background-color: white;
+    --primary-color: #ddd;
+    --secondary-color: #ccc;
+    --link-color: #15c;
+    --link-hover-color: #61c;
+    --highlight-color: #f4f4f4;
+    --pass-color: #97bd61;
+    --fail-color: #ce3e01;
+    --warn-color: #fed84f;
+    --ascending-icon: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlBWnFr3cnIr0WQOyBmvzp13CpxQAOw==);
+    --descending-icon: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlAWnBr3cnIr0WROyDmvzp13CpxQAOw==);
+}
+
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic); */
+/*@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap);*/
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /*--text-color: white;*/
+		--text-color: #d1cfcf;
+        --background-color: #1c2227;
+        --primary-color: #26373b;
+        --secondary-color: #424f5a;
+        --link-color: #52adff;
+        --link-hover-color: #bb86fc;
+        --highlight-color: #242b31;
+        --ascending-icon: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJAgMAAACZCj6+AAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAlQTFRFAAAAfn5+////f/cqYgAAAAN0Uk5TAP//RFDWIQAAACdJREFUeJxjYHBgYGAMYGBgDWFgEA1lAAOtVQwMXCsYGJgWADkNDAA78QP9oKr7vwAAAABJRU5ErkJggg==);
+        --descending-icon: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJAgMAAACZCj6+AAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAlQTFRFAAAA////fn5+K6jOaAAAAAN0Uk5TAP//RFDWIQAAACdJREFUeJxjYHBgYGAMYGBgDWFgEA1lAAOtVQwMXCsYGJgWADkNDAA78QP9oKr7vwAAAABJRU5ErkJggg==);
+    }
+}
+/* Generic and misc styles */
+body {
+	/* font-family: Helvetica, sans-serif; */
+    /* font-family: Open Sans, sans-serif; */
+	/*font-family: Roboto Mono, sans-serif;*/
+	/* font-family: Verdana, sans-serif; */
+	font-family: system-ui;
+	font-size: 1em;
+    color: var(--text-color);
+    padding: 6px;
+    background: var(--background-color);
+}
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+    empty-cells: show;
+    font-size: 1em;
+}
+th, td {
+    vertical-align: top;
+}
+br {
+    mso-data-placement: same-cell; /* maintain line breaks in Excel */
+}
+hr {
+    background: var(--secondary-color);
+    height: 1px;
+    border: 0;
+}
+a, a:link, a:visited {
+    text-decoration: none;
+    color: var(--link-color);
+}
+a > img {
+    border: 1px solid var(--link-color) !important;
+}
+a:hover, a:active {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+select {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: 4px;
+}
+.parent-name {
+    /*font-size: 0.8em;*/
+	font-size: 0.6em;
+    /* letter-spacing: -0.07em; */
+	font-family: Roboto Mono, sans-serif;
+}
+.message {
+    white-space: pre-wrap;
+}
+/* Headers */
+#header {
+    width: 65em;
+    height: 3em;
+    margin: 6px 0;
+}
+h1 {
+    float: left;
+    margin: 0 0 0.5em 0;
+    width: 75%;
+}
+h2 {
+    clear: left;
+}
+#generated {
+    float: right;
+    text-align: right;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+/* Documentation headers */
+.doc > h2 {
+    font-size: 1.2em;
+}
+.doc > h3 {
+    font-size: 1.1em;
+}
+.doc > h4 {
+    font-size: 1.0em;
+}
+/* Status text colors -- !important allows using them in links */
+.fail {
+    color: var(--fail-color) !important;
+    font-weight: normal;
+}
+.pass {
+    color: #098a09 !important;
+}
+.skip {
+    color: #927201 !important;
+    font-weight: normal;
+}
+.label {
+    padding: 2px 5px;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+.label.debug, .label.trace, .label.error, .label.keyword {
+    letter-spacing: 0;
+}
+.label.pass, .label.fail, .label.error, .label.skip, .label.warn {
+    font-weight: normal;
+}
+.label.pass {
+    background-color: var(--pass-color);
+    color: #000 !important;
+}
+.label.fail, .label.error {
+    background-color: var(--fail-color);
+    color: #fff !important;
+}
+.label.skip, .label.warn {
+    background-color: var(--warn-color);
+    color: #000 !important;
+}
+/* Top right header */
+#top-right-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 12em;
+    text-align: center;
+}
+#report-or-log-link a {
+    display: block;
+    background: black;
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    padding: 0.3em 0;
+    border-bottom-left-radius: 4px;
+}
+#report-or-log-link a:hover {
+    color: #ddd;
+}
+#log-level-selector {
+    padding: 0.3em 0;
+    font-size: 0.9em;
+    border-bottom-left-radius: 4px;
+    background: var(--primary-color);
+}
+/* Statistics table */
+.statistics {
+    width: 65em;
+    border-collapse: collapse;
+    empty-cells: show;
+    margin-bottom: 1em;
+}
+.statistics tr:hover {
+    background: var(--highlight-color);
+    cursor: pointer;
+}
+.statistics th, .statistics td {
+    border: 1px solid var(--secondary-color);
+    padding: 0.1em 0.3em;
+}
+.statistics th {
+    background-color: var(--primary-color);
+    padding: 0.2em 0.3em;
+}
+.statistics td {
+    vertical-align: middle;
+}
+.stats-col-stat {
+    width: 4.5em;
+    text-align: center;
+}
+.stats-col-elapsed {
+    width: 5.5em;
+    text-align: center;
+}
+.stats-col-graph {
+    width: 9em;
+}
+th.stats-col-graph:hover {
+    cursor: default;
+}
+.stat-name {
+    float: left;
+}
+.stat-name a, .stat-name span {
+    font-weight: normal;
+}
+.tag-links {
+    font-size: 0.9em;
+    float: right;
+    margin-top: 0.05em;
+}
+.tag-links span {
+    margin-left: 0.2em;
+}
+/* Statistics graph */
+.graph, .empty-graph {
+    border: 1px solid var(--secondary-color);
+    width: auto;
+    height: 7px;
+    padding: 0;
+    background: #aaa;
+}
+.empty-graph {
+    background: var(--highlight-color);
+}
+.pass-bar, .fail-bar, .skip-bar {
+    float: left;
+    height: 100%;
+}
+.fail-bar {
+    background: var(--fail-color);
+}
+.pass-bar {
+    background: var(--pass-color);
+}
+.skip-bar {
+    background: var(--warn-color);
+}
+/* Tablesorter - adapted from provided Blue Skin */
+.tablesorter-header {
+    background-image: url(data:image/gif;base64,R0lGODlhCwAJAIAAAH9/fwAAACH5BAEAAAEALAAAAAALAAkAAAIRjAOnBr3cnIr0WUjTrC9e9BQAOw==);
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+.tablesorter-header:hover {
+    background-color: var(--secondary-color);
+}
+.tablesorter-headerAsc {
+    background-image: var(--ascending-icon);
+    background-color: var(--secondary-color) !important;
+}
+.tablesorter-headerDesc {
+    background-image: var(--descending-icon);
+    background-color: var(--secondary-color) !important;
+}
+.sorter-false {
+    background-image: none;
+    cursor: default;
+}
+.sorter-false:hover {
+    background-color: var(--primary-color);
+}
