@@ -87,7 +87,8 @@
 }
 .name {
     /*font-weight: normal;*/
-	/*font-weight: bold; */
+	/* font-weight: bold; */
+	font-weight: 600;
 	/*font-family: Roboto Mono, sans-serif;*/
 	/*font-family: monospace;*/
 	/*font-family: Courier New, sans-serif;*/
